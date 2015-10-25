@@ -17,6 +17,7 @@
   },
   "homepage": "http://sbruchmann.me/",
   "dependencies": {
-    "aldous": "^1.2.3"
+    "aldous": "^1.2.3",
+    "recursive-readdir": "^1.2.1"
   }
 }
