@@ -1,0 +1,22 @@
+{
+  "name": "sbruchmann.me",
+  "version": "1.0.0",
+  "description": "Steffen Bruchmann’s Website",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sbruchmann/sbruchmann.me.git"
+  },
+  "author": "Steffen Bruchmann <hi@sbruchmann.me> (http://sbruchmann.me/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sbruchmann/sbruchmann.me/issues"
+  },
+  "homepage": "http://sbruchmann.me/",
+  "dependencies": {
+    "aldous": "^1.2.3"
+  }
+}
