@@ -5,6 +5,12 @@ const fs = require('fs')
 const path = require('path')
 const readdir = require('recursive-readdir')
 
+let build = Aldous({
+  paths: {
+    source: path.join(__dirname, 'src')
+  }
+})
+
 function readSourceDir(dir) {
   return new Promise(function resolver(resolve, reject) {
     readdir(dir, function callback(err, contents) {
@@ -18,9 +24,9 @@ function readSourceDir(dir) {
   })
 }
 
-readSourceDir(__dirname + '/src')
+readSourceDir(build.get('paths.source'))
   .then(function(input) {
-    return Aldous().run(input)
+    return build.run(input)
   })
   .then(function callback(response) {
     console.log('output', response[0])
