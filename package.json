@@ -18,6 +18,7 @@
   "homepage": "http://sbruchmann.me/",
   "dependencies": {
     "aldous": "^1.2.3",
+    "fs-extra": "^0.26.0",
     "recursive-readdir": "^1.2.1"
   }
 }
