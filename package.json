@@ -20,6 +20,7 @@
     "aldous": "^1.2.3",
     "fs-extra": "^0.26.0",
     "markdown-it": "^5.0.0",
-    "recursive-readdir": "^1.2.1"
+    "recursive-readdir": "^1.2.1",
+    "swig": "^1.4.2"
   }
 }

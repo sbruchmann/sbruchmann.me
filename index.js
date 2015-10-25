@@ -5,6 +5,8 @@ const Aldous = require('aldous')
 const fs = require('./fs')
 const config = require('./config')
 const markdown = require('markdown-it')
+const path = require('path')
+const swig = require('swig')
 
 // Setup
 let build = Aldous(config)
@@ -22,6 +24,22 @@ build
       if (mdExt.test(file.path)) {
         file.path = file.path.replace(mdExt, '.html')
         file.source = new Buffer(md.render(file.source.toString()))
+      }
+    })
+  })
+
+  // Render template for HTML files
+  .use(function(files, aldous, done) {
+    let globals = aldous.get('globals', {})
+    let tpl = path.join(config.paths.templates, 'layout.html')
+
+    setImmediate(done)
+    files.forEach(function(file) {
+      if (/\.html$/.test(file.path)) {
+        file.source = new Buffer(swig.renderFile(tpl, {
+          document: file,
+          globals: globals
+        }))
       }
     })
   })

@@ -9,6 +9,7 @@ var basedir = __dirname
 module.exports = {
   paths: {
     destination: path.join(basedir, 'dist'),
-    source: path.join(basedir, 'src')
+    source: path.join(basedir, 'src'),
+    templates: path.join(basedir, 'templates')
   }
 }
