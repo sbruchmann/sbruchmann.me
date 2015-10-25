@@ -2,15 +2,11 @@
 
 const Aldous = require('aldous')
 const fs = require('fs-extra')
+const config = require('./config')
 const path = require('path')
 const readdir = require('recursive-readdir')
 
-let build = Aldous({
-  paths: {
-    destination: path.join(__dirname, 'dist'),
-    source: path.join(__dirname, 'src')
-  }
-})
+let build = Aldous(config)
 
 /**
  * Read source files
@@ -59,7 +55,7 @@ function writeOutput(output) {
   })
 }
 
-readSourceDir(build.get('paths.source'))
+readSourceDir(config.paths.source)
   .then(function(input) {
     return build.run(input)
   })
