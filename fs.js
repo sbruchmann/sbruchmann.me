@@ -29,8 +29,19 @@ function writeOutput(destDir, output) {
         let dest = path.join(destDir, file.path)
 
         // TODO: Use asynchronous file I/O
-        fs.mkdirpSync(path.dirname(dest))
-        fs.writeFileSync(dest, file.source)
+        try {
+          fs.mkdirpSync(path.dirname(dest))
+        } catch (err) {
+          return reject(err)
+        }
+
+        try {
+          fs.writeFileSync(dest, file.source)
+        } catch (err) {
+          return reject(err)
+        }
+
+        resolve()
       })
     })
   })
