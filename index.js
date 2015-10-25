@@ -1,22 +1,20 @@
 'use strict';
 
+// Dependencies
 const Aldous = require('aldous')
-const fs = require('fs')
-const fsUtils = require('./fs')
+const fs = require('./fs')
 const config = require('./config')
 const path = require('path')
 const readdir = require('recursive-readdir')
 
+// Setup
 let build = Aldous(config)
+let dest = config.paths.destination
+let src = config.paths.source
 
-fsUtils.readSourceDir(config.paths.source)
-  .then(function(input) {
-    return build.run(input)
-  })
-  .then(function callback(response) {
-    return fsUtils.writeOutput(config.paths.destination, response[0])
-  })
-  .then(function callback() {
-    console.log('Done.')
-  })
+// Do ya thing!
+fs.readSourceDir(src)
+  .then(function(input) { return build.run(input) })
+  .then(function cb(response) { return fs.writeOutput(dest, response[0]) })
+  .then(function cb() { console.log('Done.') })
   .catch(console.error)
