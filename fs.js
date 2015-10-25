@@ -10,8 +10,10 @@ function readSourceDir(dir) {
     readdir(dir, function callback(err, contents) {
       if (err) return reject(err)
       resolve(contents.map(function(file) {
+        // TODO: Read source files asynchronously
         return {
-          path: path.relative(dir, file)
+          path: path.relative(dir, file),
+          source: fs.readFileSync(path.resolve(dir, file))
         }
       }))
     })
