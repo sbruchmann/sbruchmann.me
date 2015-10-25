@@ -4,8 +4,6 @@
 const Aldous = require('aldous')
 const fs = require('./fs')
 const config = require('./config')
-const path = require('path')
-const readdir = require('recursive-readdir')
 
 // Setup
 let build = Aldous(config)
