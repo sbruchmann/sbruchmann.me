@@ -11,6 +11,23 @@ let build = Aldous({
   }
 })
 
+
+/**
+ * Read source files
+ *
+ * Creates a new `source` property on source file objects that contains the
+ * source of the corresponding file.
+ */
+build.use(function readSourceFile(files, aldous, done) {
+  let src = aldous.get('paths.source')
+
+  setImmediate(done)
+  files.forEach(function(file) {
+    // TODO: Read source files asynchronously
+    file.source = fs.readFileSync(path.join(src, file.path))
+  })
+})
+
 function readSourceDir(dir) {
   return new Promise(function resolver(resolve, reject) {
     readdir(dir, function callback(err, contents) {
