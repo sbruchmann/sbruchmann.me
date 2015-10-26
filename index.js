@@ -23,5 +23,4 @@ build
 fs.readSourceDir(src)
   .then(function(input) { return build.run(input) })
   .then(function cb(response) { return fs.writeOutput(dest, response[0]) })
-  .then(function cb() { console.log('Done.') })
   .catch(function(err) { console.error(err.stack) })
