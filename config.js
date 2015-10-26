@@ -22,6 +22,7 @@ module.exports = {
       },
       'posts/**/*.md': {
         kind: 'post',
+        permalink: false,
         template: 'post'
       }
     },
