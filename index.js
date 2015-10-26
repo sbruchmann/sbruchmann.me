@@ -2,9 +2,11 @@
 
 // Dependencies
 const Aldous = require('aldous')
+const extend = require('deep-extend')
 const fs = require('./fs')
 const config = require('./config')
 const markdown = require('markdown-it')
+const matter = require('gray-matter')
 const path = require('path')
 const swig = require('swig')
 
@@ -14,6 +16,18 @@ let dest = config.paths.destination
 let src = config.paths.source
 
 build
+  // Parse front matter of markdown documents
+  .use(function(files, aldous, done) {
+    setImmediate(done)
+    files.forEach(function(file) {
+      if (/\.md$/.test(file.path)) {
+        let fm = matter(file.source.toString())
+        file.source = new Buffer(fm.content.trim())
+        extend(file, fm.data)
+      }
+    })
+  })
+
   // Render markdown files as HTML
   .use(function(files, aldous, done) {
     let md = markdown()
