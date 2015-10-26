@@ -5,7 +5,7 @@ const cssnext = require('cssnext')
 const path = require('path')
 
 // Aliases
-var basedir = __dirname
+let basedir = __dirname
 
 module.exports = {
   paths: {
