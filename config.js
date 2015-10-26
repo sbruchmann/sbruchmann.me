@@ -11,5 +11,11 @@ module.exports = {
     destination: path.join(basedir, 'dist'),
     source: path.join(basedir, 'src'),
     templates: path.join(basedir, 'templates')
+  },
+
+  globals: {
+    site: {
+      title: 'Steffen Bruchmann’s Website'
+    }
   }
 }
