@@ -4,7 +4,8 @@
   "description": "Steffen Bruchmann’s Website",
   "private": true,
   "scripts": {
-    "deploy": "surge -p dist/ -d sbruchmann.surge.sh",
+    "build": "NODE_ENV=production node index.js",
+    "deploy": "npm run build && surge -p dist/ -d sbruchmann.surge.sh",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
