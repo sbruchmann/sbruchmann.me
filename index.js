@@ -16,6 +16,7 @@ build
   .use(processors.frontMatter())
   .use(processors.extractPathData())
   .use(processors.defaults())
+  .use(processors.rewritePath())
   .use(processors.markdown())
   .use(processors.permalinks())
   .use(processors.templates())

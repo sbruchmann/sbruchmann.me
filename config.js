@@ -29,6 +29,11 @@ module.exports = {
     extractPathData: {
       'posts/**/*.md': 'posts/{category}/{date}--{slug}.md'
     },
+    rewritePath: {
+      'posts/**/*.md': function(file) {
+        return ['blog', file.category, file.slug + '.html'].join('/')
+      }
+    },
     postcss: [
       cssnext()
     ]
