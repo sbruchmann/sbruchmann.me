@@ -6,7 +6,7 @@ const postcss = require('postcss')
 
 module.exports = function setup() {
   return function plugin(files, aldous, done) {
-    let processors = aldous.get('plugins.postcss')
+    let processors = aldous.get('processors.postcss')
 
     // Note: This site has only one stylesheet,
     // so we optimize for that

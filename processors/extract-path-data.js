@@ -6,7 +6,7 @@ const isMatch = require('micromatch').isMatch
 
 module.exports = function setup() {
   return function plugin(files, aldous, done) {
-    let options = aldous.get('plugins.extractPathData')
+    let options = aldous.get('processors.extractPathData')
     let patterns = Object.keys(options)
 
     setImmediate(done)

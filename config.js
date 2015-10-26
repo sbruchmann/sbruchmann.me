@@ -14,7 +14,7 @@ module.exports = {
     templates: path.join(basedir, 'templates')
   },
 
-  plugins: {
+  processors: {
     defaults: {
       '*.md': {
         kind: 'page',
