@@ -7,7 +7,7 @@ const path = require('path')
 
 // Aliases
 let basedir = __dirname
-let env = process.env.NODE_ENV
+let env = process.env.NODE_ENV || 'development'
 
 module.exports = {
   env: env,
