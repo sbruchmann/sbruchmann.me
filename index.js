@@ -50,10 +50,9 @@ build
     setImmediate(done)
     files.forEach(function(file) {
       if (/\.html$/.test(file.path)) {
-        file.source = new Buffer(swig.renderFile(tpl, {
-          document: file,
-          globals: globals
-        }))
+        file.source = new Buffer(swig.renderFile(tpl, extend({}, globals, {
+          document: file
+        })))
       }
     })
   })

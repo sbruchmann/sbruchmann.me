@@ -5,9 +5,9 @@
     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
 
     {% if document.id != 'home' %}
-      <title>{{document.title}} | {{globals.site.title}}</title>
+      <title>{{document.title}} | {{site.title}}</title>
     {% else %}
-      <title>{{globals.site.title}}</title>
+      <title>{{site.title}}</title>
     {% endif %}
   </head>
   <body>
