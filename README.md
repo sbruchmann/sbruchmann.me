@@ -9,7 +9,7 @@ Overview
 
 **Note**: This project is in **very early** development.
 
-More information will be added as development progresses.
+See [sbruchmann.surge.sh](http://sbruchmann.surge.sh/) for the generated site.
 
 
 License
