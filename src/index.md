@@ -1,1 +1,4 @@
+---
+id: home
+---
 Hello, world!
