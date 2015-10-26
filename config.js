@@ -26,6 +26,9 @@ module.exports = {
         template: 'post'
       }
     },
+    extractPathData: {
+      'posts/**/*.md': 'posts/{category}/{date}--{slug}.md'
+    },
     postcss: [
       cssnext()
     ]

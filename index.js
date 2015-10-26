@@ -14,6 +14,7 @@ let src = config.paths.source
 
 build
   .use(processors.frontMatter())
+  .use(processors.extractPathData())
   .use(processors.defaults())
   .use(processors.markdown())
   .use(processors.permalinks())

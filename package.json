@@ -21,6 +21,7 @@
     "cssnext": "^1.8.4",
     "deep-defaults": "^1.0.3",
     "deep-extend": "^0.4.0",
+    "extract-values": "^0.1.2",
     "fs-extra": "^0.26.0",
     "gray-matter": "^2.0.1",
     "markdown-it": "^5.0.0",
