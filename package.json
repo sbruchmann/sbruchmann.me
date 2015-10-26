@@ -4,6 +4,7 @@
   "description": "Steffen Bruchmann’s Website",
   "private": true,
   "scripts": {
+    "deploy": "surge -p dist/ -d sbruchmann.surge.sh",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
