@@ -11,6 +11,6 @@
     {% endif %}
   </head>
   <body>
-    {{document.source.toString()|safe}}
+    {% block document %}{% endblock %}
   </body>
 </html>
