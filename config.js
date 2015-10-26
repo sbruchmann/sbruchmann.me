@@ -2,6 +2,7 @@
 
 // Dependencies
 const cssnext = require('cssnext')
+const moment = require('moment')
 const path = require('path')
 
 // Aliases
@@ -43,6 +44,7 @@ module.exports = {
   },
 
   globals: {
+    buildDate: moment(),
     env: env,
     site: {
       title: 'Steffen Bruchmann’s Website'
