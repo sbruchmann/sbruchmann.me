@@ -6,8 +6,11 @@ const path = require('path')
 
 // Aliases
 let basedir = __dirname
+let env = process.env.NODE_ENV
 
 module.exports = {
+  env: env,
+
   paths: {
     destination: path.join(basedir, 'dist'),
     source: path.join(basedir, 'src'),
@@ -40,6 +43,7 @@ module.exports = {
   },
 
   globals: {
+    env: env,
     site: {
       title: 'Steffen Bruchmann’s Website'
     }
