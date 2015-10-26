@@ -10,6 +10,7 @@ const isMatch = require('micromatch').isMatch
 const markdown = require('markdown-it')
 const matter = require('gray-matter')
 const path = require('path')
+const postcss = require('postcss')
 const swig = require('swig')
 
 // Setup
@@ -74,6 +75,24 @@ build
         file.source = new Buffer(swig.renderFile(tpl, locals))
       }
     })
+  })
+
+  // Process stylesheets with PostCSS
+  // Note: This site has only one stylesheet,
+  // so we optimize for that
+  .use(function(files, aldous, done) {
+    let processors = aldous.get('plugins.postcss')
+
+    for (let file of files) {
+      if (path.extname(file.path) !== '.css') continue
+      postcss(processors)
+        .process(file.source.toString())
+        .then(function(result) {
+          file.source = new Buffer(result.css)
+          done()
+        })
+        .catch(done)
+    }
   })
 
 // Do ya thing!

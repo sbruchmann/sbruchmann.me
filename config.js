@@ -1,6 +1,7 @@
 'use strict';
 
 // Dependencies
+const cssnext = require('cssnext')
 const path = require('path')
 
 // Aliases
@@ -23,7 +24,10 @@ module.exports = {
         kind: 'post',
         template: 'post'
       }
-    }
+    },
+    postcss: [
+      cssnext()
+    ]
   },
 
   globals: {
