@@ -27,6 +27,7 @@
     "micromatch": "^2.2.0",
     "postcss": "^5.0.10",
     "recursive-readdir": "^1.2.1",
-    "swig": "^1.4.2"
+    "swig": "^1.4.2",
+    "to-exports": "^0.1.0"
   }
 }
