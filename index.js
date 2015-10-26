@@ -2,9 +2,11 @@
 
 // Dependencies
 const Aldous = require('aldous')
+const defaults = require('deep-defaults')
 const extend = require('deep-extend')
 const fs = require('./fs')
 const config = require('./config')
+const isMatch = require('micromatch').isMatch
 const markdown = require('markdown-it')
 const matter = require('gray-matter')
 const path = require('path')
@@ -25,6 +27,21 @@ build
         file.source = new Buffer(fm.content.trim())
         extend(file, fm.data)
       }
+    })
+  })
+
+  // Apply default properties to source files
+  .use(function(files, aldous, done) {
+    let options = aldous.get('plugins.defaults')
+    let patterns = Object.keys(options)
+
+    setImmediate(done)
+    files.forEach(function(file, index) {
+      patterns.forEach(function(pattern) {
+        if (isMatch(file.path, pattern)) {
+          files[index] = defaults(file, options[pattern])
+        }
+      })
     })
   })
 

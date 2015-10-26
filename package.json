@@ -18,10 +18,12 @@
   "homepage": "http://sbruchmann.me/",
   "dependencies": {
     "aldous": "^1.2.3",
+    "deep-defaults": "^1.0.3",
     "deep-extend": "^0.4.0",
     "fs-extra": "^0.26.0",
     "gray-matter": "^2.0.1",
     "markdown-it": "^5.0.0",
+    "micromatch": "^2.2.0",
     "recursive-readdir": "^1.2.1",
     "swig": "^1.4.2"
   }

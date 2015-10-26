@@ -13,6 +13,19 @@ module.exports = {
     templates: path.join(basedir, 'templates')
   },
 
+  plugins: {
+    defaults: {
+      '*.md': {
+        kind: 'page',
+        template: 'page'
+      },
+      'posts/**/*.md': {
+        kind: 'post',
+        template: 'post'
+      }
+    }
+  },
+
   globals: {
     site: {
       title: 'Steffen Bruchmann’s Website'
