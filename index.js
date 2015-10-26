@@ -59,17 +59,19 @@ build
     })
   })
 
-  // Render template for HTML files
+  // Render template for files
   .use(function(files, aldous, done) {
-    let globals = aldous.get('globals', {})
-    let tpl = path.join(config.paths.templates, 'layout.html')
+    let ext = '.html'
+    let locals = extend({}, aldous.get('globals', {}))
+    let tplDir = config.paths.templates
+    let tpl = null
 
     setImmediate(done)
     files.forEach(function(file) {
-      if (/\.html$/.test(file.path)) {
-        file.source = new Buffer(swig.renderFile(tpl, extend({}, globals, {
-          document: file
-        })))
+      if (file.template) {
+        tpl = path.join(tplDir, file.template) + ext
+        locals.document = file
+        file.source = new Buffer(swig.renderFile(tpl, locals))
       }
     })
   })
