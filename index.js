@@ -16,6 +16,7 @@ build
   .use(processors.frontMatter())
   .use(processors.defaults())
   .use(processors.markdown())
+  .use(processors.permalinks())
   .use(processors.templates())
   .use(processors.postcss())
 
